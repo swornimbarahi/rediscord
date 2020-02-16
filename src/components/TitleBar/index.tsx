@@ -15,17 +15,32 @@ const TitleBar: FunctionComponent = () => {
 		<div className={styles["title-bar"]}>
 			<div className={styles["title-container"]}>Discord</div>
 			<div className={styles["title-action-container"]}>
-				<div className={styles["title-icon-container"]}>
+				<div
+					className={styles["title-icon-container"]}
+					onClick={() => {
+						electron.remote.getCurrentWindow().minimize();
+					}}
+				>
 					<img src={Minimize} alt="" className={styles["title-icon"]} />
 				</div>
-				<div className={styles["title-icon-container"]}>
+				<div
+					className={styles["title-icon-container"]}
+					onClick={() => {
+						const currWindow = electron.remote.getCurrentWindow();
+						if (currWindow.isMaximized()) currWindow.unmaximize();
+						else currWindow.maximize();
+					}}
+				>
 					<img src={Maximize} alt="" className={styles["title-icon"]} />
 				</div>
 				<div
 					className={classnames(
 						styles["title-icon-container"],
 						styles["close-icon-container"]
-					)}
+          )}
+          onClick={() => {
+
+          }}
 				>
 					<img src={Close} alt="" className={styles["title-icon"]} />
 				</div>
