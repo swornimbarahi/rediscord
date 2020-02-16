@@ -39,7 +39,7 @@ const TitleBar: FunctionComponent = () => {
 						styles["close-icon-container"]
           )}
           onClick={() => {
-
+            window.close();
           }}
 				>
 					<img src={Close} alt="" className={styles["title-icon"]} />
