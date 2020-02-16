@@ -1,0 +1,42 @@
+.title-bar {
+  background-color: #202225;
+  display: flex;
+  flex-direction: row;
+
+  .title-action-container {
+    display: flex;
+    flex-direction: row;
+
+    .title-icon-container {
+      padding: 5px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .title-icon {
+        width: 0.8em;
+      }
+    }
+
+    .title-icon-container:hover {
+      background-color: #282B2E;
+    }
+
+    .close-icon-container:hover {
+      background-color: #F04747;
+    }
+  }
+
+  .title-container {
+    color: #72767D;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    font-size: 0.8em;
+    font-weight: bolder;
+    padding-left: 10px;
+    text-transform: uppercase;
+    -webkit-app-region: drag;
+  }
+}
+
