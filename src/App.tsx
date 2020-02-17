@@ -11,15 +11,18 @@ function App() {
 		<div className="App">
 			<TitleBar />
 			<div className="AppBody">
-				<AuthFormContainer>
+				<AuthFormContainer
+					title={"Welcome Back!"}
+					subtitle={"We're so excited to see you again!"}
+				>
 					<InputBlock
 						label="Email"
 						type="email"
 						onChange={(v: React.ChangeEvent<HTMLInputElement>) =>
 							console.log(v)
-            }
-            validation={false}
-            validationMessage=" - Not a well formed email address."
+						}
+						validation={false}
+						validationMessage=" - Not a well formed email address."
 					/>
 					<InputBlock
 						label="Password"
