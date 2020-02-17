@@ -8,6 +8,11 @@
   height: 35px;
   width: 100%;
   outline: none;
+  padding: 0px 10px;
+
+  &--error {
+    border-color: #f04747;
+  }
 }
 
 .input-element:focus {
@@ -24,6 +29,16 @@
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 10px;
+
+  &--error {
+    color: #f04747;
+  }
+
+  .error-message {
+    text-transform: none;
+    font-weight: normal;
+    font-style: italic;
+  }
 }
 
 .mba {

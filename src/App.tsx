@@ -17,7 +17,9 @@ function App() {
 						type="email"
 						onChange={(v: React.ChangeEvent<HTMLInputElement>) =>
 							console.log(v)
-						}
+            }
+            validation={false}
+            validationMessage=" - Not a well formed email address."
 					/>
 					<InputBlock
 						label="Password"

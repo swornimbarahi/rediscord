@@ -7,6 +7,8 @@ type InputBlockPropType = {
 	label: String;
 	type?: "text" | "email" | "password";
 	onChange?: Function;
+	validation?: boolean;
+	validationMessage?: String;
 };
 
 const InputBlock: FunctionComponent<InputBlockPropType> = props => {
@@ -15,7 +17,9 @@ const InputBlock: FunctionComponent<InputBlockPropType> = props => {
 		type = "text",
 		onChange = (v: React.ChangeEvent<HTMLInputElement>) => {
 			return v;
-		}
+		},
+		validation = true,
+		validationMessage = ""
 	} = props;
 
 	const [val, setVal] = useState();
@@ -28,9 +32,22 @@ const InputBlock: FunctionComponent<InputBlockPropType> = props => {
 
 	return (
 		<div className={styles["input-container"]}>
-			<div className={styles["label-container"]}>{label}</div>
+			<div
+				className={classnames([
+					styles["label-container"],
+					!validation && styles["label-container--error"]
+				])}
+			>
+				{label}
+				<span className={styles["error-message"]}>
+					{!validation && validationMessage}
+				</span>
+			</div>
 			<input
-				className={styles["input-element"]}
+				className={classnames([
+					styles["input-element"],
+					!validation && styles["input-element--error"]
+				])}
 				type={type}
 				value={val}
 				onChange={e => changeHandler(e)}
