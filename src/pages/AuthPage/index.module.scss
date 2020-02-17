@@ -1,0 +1,28 @@
+.forgot-password {
+  span {
+    color: #7289da;
+    margin: 0px 10px 22px 10px;
+    font-size: 0.7em;
+    cursor: pointer;
+  }
+
+  span:hover {
+    text-decoration: underline;
+    text-decoration-color: #7289da;
+  }
+}
+
+.need-account {
+  margin: 0px 10px 0px 10px;
+  font-size: 0.7em;
+
+  span {
+    color: #7289da;
+    cursor: pointer;
+  }
+
+  span:hover {
+    text-decoration: underline;
+    text-decoration-color: #7289da;
+  }
+}

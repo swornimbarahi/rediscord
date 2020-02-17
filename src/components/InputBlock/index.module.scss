@@ -3,12 +3,13 @@
   border: 1px solid #000000;
   border-radius: 3px;
   color: #dcddde;
-  font-size: 16px;
+  font-size: 0.9em;
   font-family: 'Exo 2', sans-serif;
-  height: 35px;
+  height: 40px;
   width: 373px;
   outline: none;
   padding: 0px 10px;
+  transition-duration: 0.35s;
 
   &--error {
     border-color: #f04747;
