@@ -1,0 +1,16 @@
+.App {
+  background-color: #202225;
+  height: 100vh;
+
+  &--no-auth {
+    background-image: url('./assets/loggedout/background.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+  }
+}
+
+.AppBody {
+  color: #72767D;
+}

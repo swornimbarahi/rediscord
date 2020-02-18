@@ -1,18 +1,28 @@
 import React, { FunctionComponent } from "react";
 import classnames from "classnames";
 
-import Minimize from "../../assets/titlebar/minimize.png";
-import Maximize from "../../assets/titlebar/maximize.png";
-import Close from "../../assets/titlebar/close.png";
+import {Minimize, Maximize, Cross} from "./TitleBarIcons";
 
 import styles from "./index.module.scss";
 
 // @ts-ignore
 const electron = window.require("electron");
 
-const TitleBar: FunctionComponent = () => {
+type TitleBarProps = {
+	transparent: boolean;
+};
+
+const TitleBar: FunctionComponent<TitleBarProps> = props => {
+	const { transparent } = props;
+
 	return (
-		<div className={styles["title-bar"]}>
+		<div
+			className={classnames([
+				styles["title-bar"],
+        transparent && styles["title-bar--transparent"],
+        transparent && styles["title-bar--color"],
+			])}
+		>
 			<div className={styles["title-container"]}>Discord</div>
 			<div className={styles["title-action-container"]}>
 				<div
@@ -21,7 +31,7 @@ const TitleBar: FunctionComponent = () => {
 						electron.remote.getCurrentWindow().minimize();
 					}}
 				>
-					<img src={Minimize} alt="" className={styles["title-icon"]} />
+          <Minimize />
 				</div>
 				<div
 					className={styles["title-icon-container"]}
@@ -31,18 +41,18 @@ const TitleBar: FunctionComponent = () => {
 						else currWindow.maximize();
 					}}
 				>
-					<img src={Maximize} alt="" className={styles["title-icon"]} />
+					<Maximize />
 				</div>
 				<div
 					className={classnames(
 						styles["title-icon-container"],
 						styles["close-icon-container"]
-          )}
-          onClick={() => {
-            window.close();
-          }}
+					)}
+					onClick={() => {
+						window.close();
+					}}
 				>
-					<img src={Close} alt="" className={styles["title-icon"]} />
+					<Cross />
 				</div>
 			</div>
 		</div>

@@ -1,14 +1,15 @@
 import React from "react";
+import classnames from "classnames";
 
 import TitleBar from "./components/TitleBar";
 
-import "./App.css";
+import "./App.scss";
 import AuthPage from "./pages/AuthPage";
 
 function App() {
 	return (
-		<div className="App">
-			<TitleBar />
+		<div className={classnames(["App", "App--no-auth"])}>
+			<TitleBar transparent={true} />
 			<div className="AppBody">
 				<AuthPage />
 			</div>
