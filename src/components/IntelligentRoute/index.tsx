@@ -1,30 +1,27 @@
-import React, { FunctionComponent, ComponentClass } from "react";
-import { Route } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { FunctionComponent, ComponentClass, useContext } from "react";
+import { Route, Redirect } from "react-router-dom";
 
-type IntelligentRouteProps = {
+import AuthContext, { AuthContextType } from "../../contexts/AuthContext";
+
+export type IntelligentRouteProps = {
 	privateRoute: boolean;
 	exact: boolean;
 	path: string;
 	component: ComponentClass<any, any> | FunctionComponent<any>;
-	loggedIn: boolean;
 };
 
 const IntelligentRoute: FunctionComponent<IntelligentRouteProps> = props => {
-	const { privateRoute, exact, path, component, loggedIn } = props;
+	const { privateRoute, exact, path, component } = props;
 
-	return privateRoute === loggedIn ? (
+	const { state } = useContext(AuthContext) as {
+		state: AuthContextType;
+	};
+
+	return privateRoute === state.loggedIn ? (
 		<Route exact={exact} path={path} component={component} />
 	) : (
-		<></>
+		<Redirect to="/asdf" />
 	);
 };
 
-const mapStateToProps = (state: any, props: IntelligentRouteProps) => {
-	return {
-		...props,
-		loggedIn: state.loggedIn
-	};
-};
-
-export default connect(mapStateToProps, null)(IntelligentRoute);
+export default IntelligentRoute;

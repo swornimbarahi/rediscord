@@ -1,15 +1,20 @@
-import React, { FunctionComponent, useState } from "react";
+import React, {
+	FunctionComponent,
+	useState,
+	useContext,
+	Dispatch,
+	SetStateAction
+} from "react";
 import AuthFormContainer from "../AuthFormContainer";
 import InputBlock from "../InputBlock";
 import AuthButton from "../AuthButton";
+import axios from "axios";
+import AuthContext, { AuthContextType } from "../../contexts/AuthContext";
 
-import { connect } from "react-redux";
-import { login } from "../../actions/authActions";
 import styles from "./index.module.scss";
 
 type LoginProps = {
 	changePage: Function;
-	login: Function;
 };
 
 const Login: FunctionComponent<LoginProps> = props => {
@@ -18,11 +23,24 @@ const Login: FunctionComponent<LoginProps> = props => {
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
-	const submitHandler = () => {
-		props.login({
-			email,
-			password
-		});
+	let { setState } = useContext(AuthContext) as {
+		setState: Dispatch<SetStateAction<AuthContextType>>;
+	};
+
+	const submitHandler = async () => {
+		const response = await axios.post(
+			"http://www.localhost:3001/api/user/login",
+			{
+				email,
+				password
+			}
+		);
+
+		if (response.data.token) {
+			setState({
+				...response.data
+			});
+		}
 	};
 
 	return (
@@ -68,4 +86,4 @@ const Login: FunctionComponent<LoginProps> = props => {
 	);
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+export default Login;
