@@ -23,8 +23,8 @@ const Login: FunctionComponent<LoginProps> = props => {
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
-	let { setState } = useContext(AuthContext) as {
-		setState: Dispatch<SetStateAction<AuthContextType>>;
+	let { setUserState } = useContext(AuthContext) as {
+		setUserState: Dispatch<SetStateAction<AuthContextType>>;
 	};
 
 	const submitHandler = async () => {
@@ -37,7 +37,8 @@ const Login: FunctionComponent<LoginProps> = props => {
 		);
 
 		if (response.data.token) {
-			setState({
+			setUserState({
+				loggedIn: true,
 				...response.data
 			});
 		}

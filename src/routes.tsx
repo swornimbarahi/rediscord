@@ -1,22 +1,24 @@
 import React from "react";
-import { IntelligentRouteProps } from "./components/IntelligentRoute";
+import { ComponentClass, FunctionComponent } from "react";
 
 import AuthPage from "./pages/AuthPage";
+import TitleBar from "./components/TitleBar";
 
+type IntelligentRouteType = {
+	privateRoute: boolean;
+	component: ComponentClass<any> | FunctionComponent<any>;
+};
 
-const Routes: IntelligentRouteProps[] = [
-	{
+const Routes: any = {
+	"/": {
 		privateRoute: false,
-		exact: true,
-		path: "/",
-		component: AuthPage
+		component: <AuthPage />
 	},
-	{
-		privateRoute: false,
-		exact: true,
-		path: "/asdf",
-		component: () => <div />
+	"/asdf": {
+		privateRoute: true,
+		component: <TitleBar transparent={false}/>
 	}
-];
+};
+
 
 export default Routes;
