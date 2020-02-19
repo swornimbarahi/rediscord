@@ -68,10 +68,4 @@ const Login: FunctionComponent<LoginProps> = props => {
 	);
 };
 
-const mapDispatchToProps = (dispatch: Function) => {
-	return {
-		login: (credentials: any) => dispatch(login(credentials))
-	};
-};
-
 export default connect(null, mapDispatchToProps)(Login);
