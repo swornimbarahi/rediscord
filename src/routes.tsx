@@ -16,7 +16,7 @@ const Routes: any = {
 	},
 	"/asdf": {
 		privateRoute: true,
-		component: <TitleBar transparent={false}/>
+		component: <TitleBar transparent={true}/>
 	}
 };
 

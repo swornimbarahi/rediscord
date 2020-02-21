@@ -31,7 +31,7 @@ const App: FunctionComponent = () => {
         setRoute("/");
         console.log(Routes[route]);
       }
-    }
+    } 
     
 	}, [userState.loggedIn, route]);
 
