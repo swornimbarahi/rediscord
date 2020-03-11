@@ -24,9 +24,12 @@ const InputBlock: FunctionComponent<InputBlockPropType> = props => {
 		value
 	} = props;
 
+	const [v, setV] = useState(value);
+
 	const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
-    onChange(e.currentTarget.value);
+		setV(e.currentTarget.value);
+		onChange(v);
 	};
 
 	return (
@@ -48,7 +51,7 @@ const InputBlock: FunctionComponent<InputBlockPropType> = props => {
 					!validation && styles["input-element--error"]
 				])}
 				type={type}
-				value={value}
+				value={v}
 				onChange={e => changeHandler(e)}
 			/>
 		</div>

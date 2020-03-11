@@ -49,37 +49,39 @@ const Login: FunctionComponent<LoginProps> = props => {
 			title={"Welcome Back!"}
 			subtitle={"We're so excited to see you again!"}
 		>
-			<InputBlock
-				label="Email"
-				type="email"
-				onChange={(v: string) => {
-					setEmail(v);
-				}}
-				value={email}
-				validation={true}
-				validationMessage=" - Not a well formed email address."
-			/>
-			<InputBlock
-				label="Password"
-				type="password"
-				onChange={(v: string) => {
-					setPassword(v);
-				}}
-				value={password}
-				validation={true}
-				validationMessage=" - Not a valid password."
-			/>
-			<div className={styles["forgot-password"]}>
-				<span>Forgot your password?</span>
-			</div>
-			<AuthButton
-				onClick={(e: React.MouseEvent) => {
-					e.preventDefault();
-					submitHandler();
-				}}
-			>
-				<span>Login</span>
-			</AuthButton>
+			<form onSubmit={submitHandler}>
+				<InputBlock
+					label="Email"
+					type="email"
+					onChange={(v: string) => {
+						setEmail(v);
+					}}
+					value={email}
+					validation={true}
+					validationMessage=" - Not a well formed email address."
+				/>
+				<InputBlock
+					label="Password"
+					type="password"
+					onChange={(v: string) => {
+						setPassword(v);
+					}}
+					value={password}
+					validation={true}
+					validationMessage=" - Not a valid password."
+				/>
+				<div className={styles["forgot-password"]}>
+					<span>Forgot your password?</span>
+				</div>
+				<AuthButton
+					onClick={(e: React.MouseEvent) => {
+						e.preventDefault();
+						submitHandler();
+					}}
+				>
+					<span>Login</span>
+				</AuthButton>
+			</form>
 			<div className={styles["need-account"]}>
 				Need an account? <span onClick={() => changePage()}>Register.</span>
 			</div>

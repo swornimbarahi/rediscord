@@ -19,7 +19,7 @@ const TitleBar: FunctionComponent<TitleBarProps> = props => {
 		<div
 			className={classnames([
 				styles["title-bar"],
-        transparent && styles["title-bar--transparent"],
+        !transparent && styles["title-bar--transparent"],
         transparent && styles["title-bar--color"],
 			])}
 		>

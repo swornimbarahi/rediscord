@@ -24,22 +24,22 @@ const App: FunctionComponent = () => {
 	});
 
 	useEffect(() => {
-    if (userState.loggedIn !== Routes[route].privateRoute){
-      if (userState.loggedIn) {
-        setRoute("/asdf");
-      } else {
-        setRoute("/");
-        console.log(Routes[route]);
-      }
-    } 
-    
+		if (userState.loggedIn !== Routes[route].privateRoute) {
+			if (userState.loggedIn) {
+				setRoute("/messages");
+			} else {
+				setRoute("/");
+			}
+		}
 	}, [userState.loggedIn, route]);
 
 	return (
 		<AuthContext.Provider value={{ userState, setUserState }}>
 			<RouteContext.Provider value={{ route, setRoute }}>
-				<div className={classnames(["App", "App--no-auth"])}>
-					<TitleBar transparent={true} />
+				<div
+					className={classnames(["App", !userState.loggedIn && "App--no-auth"])}
+				>
+					<TitleBar transparent={userState.loggedIn} />
 					<div className="AppBody">{Routes[route].component}</div>
 				</div>
 			</RouteContext.Provider>
