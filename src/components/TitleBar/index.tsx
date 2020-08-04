@@ -23,7 +23,7 @@ const TitleBar: FunctionComponent<TitleBarProps> = props => {
         transparent && styles["title-bar--color"],
 			])}
 		>
-			<div className={styles["title-container"]}>Discord</div>
+			<div className={styles["title-container"]}>ReDiscord</div>
 			<div className={styles["title-action-container"]}>
 				<div
 					className={styles["title-icon-container"]}

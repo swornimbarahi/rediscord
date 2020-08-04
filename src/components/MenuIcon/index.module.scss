@@ -1,0 +1,15 @@
+.menu-icon-super-container {
+  .menu-icon-container {
+    padding: 20px;
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #2f3136;
+    
+    &--selected {
+      border-radius: 10%;
+      background-color: #7289da;
+    }
+  }
+}
