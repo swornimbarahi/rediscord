@@ -3,7 +3,7 @@ import React, {
 	useState,
 	useContext,
 	Dispatch,
-	SetStateAction
+	SetStateAction,
 } from "react";
 import AuthFormContainer from "../AuthFormContainer";
 import InputBlock from "../InputBlock";
@@ -17,7 +17,7 @@ type RegisterProps = {
 	changePage: Function;
 };
 
-const Register: FunctionComponent<RegisterProps> = props => {
+const Register: FunctionComponent<RegisterProps> = (props) => {
 	const { changePage } = props;
 
 	const [email, setEmail] = useState<string>("");
@@ -33,52 +33,54 @@ const Register: FunctionComponent<RegisterProps> = props => {
 			"http://www.localhost:3001/api/user/register",
 			{
 				email,
-        password,
-        username
+				password,
+				username,
 			}
 		);
 
 		if (response.data.token) {
 			setUserState({
 				loggedIn: true,
-				...response.data
+				...response.data,
 			});
 		}
 	};
 
 	return (
 		<AuthFormContainer title={"Create an account"}>
-			<InputBlock
-				label="Email"
-				type="email"
-				onChange={(v: string) => setEmail(v)}
-				value={email}
-				validation={true}
-				validationMessage=" - Not a well formed email address."
-			/>
-			<InputBlock
-				label="Username"
-				type="text"
-				value={username}
-				onChange={(v: string) => setUsername(v)}
-			/>
-			<InputBlock
-				label="Password"
-				type="password"
-				value={password}
-				onChange={(v: string) => setPassword(v)}
-			/>
-			<div className={styles["forgot-password"]}>
-				<span onClick={() => changePage()}>Already have an account?</span>
-			</div>
-			<AuthButton
-				onClick={(e: React.MouseEvent) => {
-					e.preventDefault();
-					submitHandler();
-				}}
-			>
-				<span>Continue</span>
-			</AuthButton>
+			<form onSubmit={submitHandler}>
+				<InputBlock
+					label="Email"
+					type="email"
+					onChange={(v: string) => setEmail(v)}
+					value={email}
+					validation={true}
+					validationMessage=" - Not a well formed email address."
+				/>
+				<InputBlock
+					label="Username"
+					type="text"
+					value={username}
+					onChange={(v: string) => setUsername(v)}
+				/>
+				<InputBlock
+					label="Password"
+					type="password"
+					value={password}
+					onChange={(v: string) => setPassword(v)}
+				/>
+				<div className={styles["forgot-password"]}>
+					<span onClick={() => changePage()}>Already have an account?</span>
+				</div>
+				<AuthButton
+					onClick={(e: React.MouseEvent) => {
+						e.preventDefault();
+						submitHandler();
+					}}
+				>
+					<span>Continue</span>
+				</AuthButton>
+			</form>
 		</AuthFormContainer>
 	);
 };

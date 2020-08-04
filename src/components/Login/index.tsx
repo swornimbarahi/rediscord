@@ -68,7 +68,7 @@ const Login: FunctionComponent<LoginProps> = props => {
 					}}
 					value={password}
 					validation={true}
-					validationMessage=" - Not a valid password."
+          validationMessage=" - Not a valid password."
 				/>
 				<div className={styles["forgot-password"]}>
 					<span>Forgot your password?</span>
@@ -77,7 +77,7 @@ const Login: FunctionComponent<LoginProps> = props => {
 					onClick={(e: React.MouseEvent) => {
 						e.preventDefault();
 						submitHandler();
-					}}
+          }}
 				>
 					<span>Login</span>
 				</AuthButton>
