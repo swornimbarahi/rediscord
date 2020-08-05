@@ -3,7 +3,7 @@ import React, {
 	useState,
 	useContext,
 	Dispatch,
-	SetStateAction
+	SetStateAction,
 } from "react";
 import AuthFormContainer from "../AuthFormContainer";
 import InputBlock from "../InputBlock";
@@ -17,7 +17,7 @@ type LoginProps = {
 	changePage: Function;
 };
 
-const Login: FunctionComponent<LoginProps> = props => {
+const Login: FunctionComponent<LoginProps> = (props) => {
 	const { changePage } = props;
 
 	const [email, setEmail] = useState<string>("");
@@ -32,15 +32,19 @@ const Login: FunctionComponent<LoginProps> = props => {
 			"http://www.localhost:3001/api/user/login",
 			{
 				email,
-				password
+				password,
 			}
 		);
 
 		if (response.data.token) {
 			setUserState({
 				loggedIn: true,
-				...response.data
+				...response.data,
 			});
+			sessionStorage.setItem("user", JSON.stringify({
+				loggedIn: true,
+				...response.data,
+			}));
 		}
 	};
 
@@ -68,7 +72,7 @@ const Login: FunctionComponent<LoginProps> = props => {
 					}}
 					value={password}
 					validation={true}
-          validationMessage=" - Not a valid password."
+					validationMessage=" - Not a valid password."
 				/>
 				<div className={styles["forgot-password"]}>
 					<span>Forgot your password?</span>
@@ -77,7 +81,7 @@ const Login: FunctionComponent<LoginProps> = props => {
 					onClick={(e: React.MouseEvent) => {
 						e.preventDefault();
 						submitHandler();
-          }}
+					}}
 				>
 					<span>Login</span>
 				</AuthButton>

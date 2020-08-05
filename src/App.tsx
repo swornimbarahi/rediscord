@@ -6,7 +6,7 @@ import TitleBar from "./components/TitleBar";
 
 import "./App.scss";
 
-import AuthContext from "./contexts/AuthContext";
+import AuthContext, { AuthContextType } from "./contexts/AuthContext";
 import RouteContext from "./contexts/RouteContext";
 
 const App: FunctionComponent = () => {
@@ -14,7 +14,7 @@ const App: FunctionComponent = () => {
 		loggedIn: false,
 		token: null,
 		email: null,
-		username: null
+		username: null,
 	});
 
 	const [route, setRoute] = useState("/");
@@ -33,6 +33,13 @@ const App: FunctionComponent = () => {
 		}
 	}, [userState.loggedIn, route]);
 
+	useEffect(() => {
+		const userExists = sessionStorage.getItem("user");
+		if (userExists) {
+			setUserState(JSON.parse(userExists));
+		}
+  }, []);
+  
 	return (
 		<AuthContext.Provider value={{ userState, setUserState }}>
 			<RouteContext.Provider value={{ route, setRoute }}>

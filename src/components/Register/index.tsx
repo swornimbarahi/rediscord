@@ -42,7 +42,11 @@ const Register: FunctionComponent<RegisterProps> = (props) => {
 			setUserState({
 				loggedIn: true,
 				...response.data,
-			});
+      });
+      sessionStorage.setItem("user", JSON.stringify({
+				loggedIn: true,
+				...response.data,
+			}));
 		}
 	};
 
