@@ -6,7 +6,7 @@ import TitleBar from "./components/TitleBar";
 
 import "./App.scss";
 
-import AuthContext, { AuthContextType } from "./contexts/AuthContext";
+import AuthContext from "./contexts/AuthContext";
 import RouteContext from "./contexts/RouteContext";
 
 const App: FunctionComponent = () => {

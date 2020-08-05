@@ -3,10 +3,10 @@ import classnames from "classnames";
 
 import styles from "./index.module.scss";
 
-const SideBar: FunctionComponent = () => {
-	return <div className={classnames(styles["sidebar-container"])}>
+const ServerBar: FunctionComponent = () => {
+	return <div className={classnames(styles["serverbar-container"])}>
     
   </div>;
 };
 
-export default SideBar;
+export default ServerBar;
