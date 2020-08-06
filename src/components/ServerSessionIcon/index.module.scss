@@ -1,7 +1,7 @@
 .server-icon-super-container {
-  position: relative;
-  overflow: visible;
-  margin-bottom: 8px;
+	position: relative;
+	overflow: visible;
+	margin-bottom: 8px;
 
 	.server-icon-container {
 		width: 48px;
@@ -11,118 +11,121 @@
 		position: relative;
 		margin: auto;
 		display: flex;
-		justify-content: space-evenly;
+    justify-content: space-evenly;
+    transition: 0.2s;
 	}
 
 	.server-icon--hover {
-    
-    &-unread {
-      visibility: visible;
-      margin-top: 20px;
-      width: 4px;
-      height: 8px;
-      border-radius: 0px 4px 4px 0px;
-    }
+		&-unread {
+			visibility: visible;
+			margin-top: 20px;
+			width: 4px;
+			height: 8px;
+			border-radius: 0px 4px 4px 0px;
+		}
 
-    visibility: hidden;
+		visibility: hidden;
 		position: absolute;
 		left: 0px;
-    padding: 0px;
-    transition: 0.2s;
-    border-radius: 0px 4px 4px 0px;
-    width: 0px;
-    height: 20px;
-    z-index: 5;
-    margin-top: 14px;
+		padding: 0px;
+		transition: 0.2s;
+		border-radius: 0px 4px 4px 0px;
+		width: 0px;
+		height: 20px;
+		z-index: 5;
+		margin-top: 14px;
 		box-sizing: border-box;
-    background-color: white;
-  
-  }
+		background-color: white;
+	}
 
 	.server-icon--text {
 		&--selected {
 			border-radius: 10%;
 			background-color: #7289da;
 		}
-  }
-  
-  .server-icon--selected {
-    visibility: visible;
-    position: absolute;
-    left: 0px;
-    padding: 0px;
-    transition: 0.2s;
-    margin-top: 3px;
-    border-radius: 0px 4px 4px 0px;
-    width: 4px;
-    height: 42px;
-    z-index: 5;
-    box-sizing: border-box;
-    background-color: white;
-  }
+	}
 
-  .server-name--tooltip {
-    visibility: hidden;
-    position: absolute;
-    display: inline-block;
-    left: 80px;
-    top: 5px;
-    z-index: 5;
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: black;
-    color: white;
-    font-size: 16px;
-    font-weight: normal;
-    border-radius: 5px;
-  }
+	.server-icon--selected {
+		visibility: visible;
+		position: absolute;
+		left: 0px;
+		padding: 0px;
+		transition: 0.2s;
+		margin-top: 3px;
+		border-radius: 0px 4px 4px 0px;
+		width: 4px;
+		height: 42px;
+		z-index: 5;
+		box-sizing: border-box;
+		background-color: white;
+	}
 
-  .server-name--tooltip::before {
-    content: "";
-    position: absolute;
-    left: -1px;
-    top: 15%;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 10px 0px 10px 10px;
-    transform: rotate(-135deg);
-    border-color: black transparent transparent transparent;
-  }
+	.server-name--tooltip {
+		visibility: hidden;
+		position: absolute;
+		display: inline-block;
+		left: 80px;
+		top: 5px;
+		z-index: 5;
+		box-sizing: border-box;
+		padding: 10px;
+		background-color: black;
+		color: white;
+		font-size: 16px;
+		font-weight: normal;
+		border-radius: 5px;
+	}
+
+	.server-name--tooltip::before {
+		content: "";
+		position: absolute;
+		left: -1px;
+		top: 15%;
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 10px 0px 10px 10px;
+		transform: rotate(-135deg);
+		border-color: black transparent transparent transparent;
+	}
 }
 
 .server-icon-super-container:hover {
-  .server-icon--hover {
-    position: absolute;
-    visibility: visible;
-    left: 0px;
-    height: 20px;
-    width: 4px;
-    margin-top: 14px;
-  }
+	.server-icon-container {
+    border-radius: 30%;
+    background-color: #202225;
+	}
 
-  .server-icon--selected {
-    visibility: visible;
-    position: absolute;
-    left: 0px;
-    padding: 0px;
-    transition: 0.2s;
-    margin-top: 3px;
-    border-radius: 0px 4px 4px 0px;
-    width: 4px;
-    height: 43px;
-    z-index: 5;
-    box-sizing: border-box;
-    background-color: white;
-  }
+	.server-icon--hover {
+		position: absolute;
+		visibility: visible;
+		left: 0px;
+		height: 20px;
+		width: 4px;
+		margin-top: 14px;
+	}
 
-  .server-name--tooltip {
-    visibility: visible;
-  }
+	.server-icon--selected {
+		visibility: visible;
+		position: absolute;
+		left: 0px;
+		padding: 0px;
+		transition: 0.2s;
+		margin-top: 3px;
+		border-radius: 0px 4px 4px 0px;
+		width: 4px;
+		height: 43px;
+		z-index: 5;
+		box-sizing: border-box;
+		background-color: white;
+	}
+
+	.server-name--tooltip {
+		visibility: visible;
+	}
 }
 
 .server-icon-super-container:hover .server-icon--text {
 	border-radius: 10%;
 	background-color: #7289da;
 }
-

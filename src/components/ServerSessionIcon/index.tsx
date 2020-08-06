@@ -1,23 +1,45 @@
-import React, { FunctionComponent } from "react";
+import React, {
+	FunctionComponent,
+	useContext,
+	Dispatch,
+	SetStateAction,
+} from "react";
 import classnames from "classnames";
 import styles from "./index.module.scss";
+import ServerContext from "../../contexts/ServerContext";
 
 export interface ChatSessionPropType {
 	icon: string | null;
 	serverId: string;
 	serverTitle: string;
-	selected: boolean;
+	unread: boolean;
 }
 
 const ServerSessionIcon: FunctionComponent<ChatSessionPropType> = (props) => {
-	const { icon, serverId, serverTitle, selected } = props;
+	const { icon, serverId, serverTitle, unread } = props;
+
+	const { selectedServer, setSelectedServer } = useContext(ServerContext) as {
+		selectedServer: string;
+		setSelectedServer: Dispatch<SetStateAction<string>>;
+	};
+
+	const handleClick = () => {
+		if (selectedServer !== serverId) {
+			setSelectedServer(serverId);
+		}
+	};
+
 	return (
-		<div key={serverId} className={styles["server-icon-super-container"]}>
+		<div
+			key={serverId}
+			className={styles["server-icon-super-container"]}
+			onClick={handleClick}
+		>
 			<div
 				className={classnames(
 					styles["server-icon--hover"],
-					styles["server-icon--hover-unread"],
-					selected && styles["server-icon--selected"]
+					unread && styles["server-icon--hover-unread"],
+					selectedServer === serverId && styles["server-icon--selected"]
 				)}
 			/>
 			{icon ? (
