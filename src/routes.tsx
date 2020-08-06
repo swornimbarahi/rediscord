@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentClass, FunctionComponent } from "react";
 
 import AuthPage from "./pages/AuthPage";
-import ServerBar from "./components/ServerBar";
+import MainPage from "./pages/MainPage";
 
 type IntelligentRouteType = {
 	privateRoute: boolean;
@@ -16,7 +16,7 @@ const Routes: any = {
 	},
 	"/messages": {
 		privateRoute: true,
-		component: <ServerBar />
+		component: <MainPage />
 	}
 };
 
