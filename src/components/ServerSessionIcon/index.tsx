@@ -10,7 +10,7 @@ export interface ChatSessionPropType {
 }
 
 const ServerSessionIcon: FunctionComponent<ChatSessionPropType> = (props) => {
-	const { icon, serverId, serverTitle, selected} = props;
+	const { icon, serverId, serverTitle, selected } = props;
 	return (
 		<div key={serverId} className={styles["server-icon-super-container"]}>
 			<div
@@ -25,7 +25,7 @@ const ServerSessionIcon: FunctionComponent<ChatSessionPropType> = (props) => {
 			) : (
 				<span>{serverTitle[0].toUpperCase()}</span>
 			)}
-      <div className={styles["server-name--tooltip"]}>{serverTitle}</div>
+			<div className={styles["server-name--tooltip"]}>{serverTitle}</div>
 		</div>
 	);
 };

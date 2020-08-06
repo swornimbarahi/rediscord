@@ -13,6 +13,18 @@ const ServerBar: FunctionComponent = () => {
 				serverId={"1234"}
 				serverTitle={"NT"}
 			/>
+      <ServerSessionIcon
+				icon={"https://simpleicons.org/icons/sass.svg"}
+				selected={false}
+				serverId={"1234"}
+				serverTitle={"NT"}
+			/>
+      <ServerSessionIcon
+        icon={"https://simpleicons.org/icons/sass.svg"}
+        selected={false}
+				serverId={"1234"}
+				serverTitle={"NT"}
+			/>
 		</div>
 	);
 };

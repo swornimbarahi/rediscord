@@ -1,4 +1,8 @@
 .server-icon-super-container {
+  position: relative;
+  overflow: visible;
+  margin-bottom: 8px;
+
 	.server-icon-container {
 		width: 48px;
 		height: 48px;
@@ -60,8 +64,9 @@
   .server-name--tooltip {
     visibility: hidden;
     position: absolute;
+    display: inline-block;
     left: 80px;
-    top: 12px;
+    top: 5px;
     z-index: 5;
     box-sizing: border-box;
     padding: 10px;
