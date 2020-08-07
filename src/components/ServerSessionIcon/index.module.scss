@@ -12,7 +12,8 @@
 .server-icon-super-container {
 	position: relative;
 	overflow: visible;
-	margin-bottom: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
 
 	.server-icon-container {
 		width: 48px;
@@ -95,7 +96,7 @@
 		z-index: 5;
     box-sizing: border-box;
     white-space: nowrap;
-    padding: 8px 12px 11px 12px;
+    padding: 7px 12px 10px 12px;
 		background-color: black;
 		color: white;
 		font-size: 16px;
@@ -177,4 +178,10 @@
 .server-icon-super-container:hover .server-icon--text {
 	border-radius: 10%;
 	background-color: #7289da;
+}
+
+.server-icon-super-container:active {
+  .server-icon-container {
+    transform: translateY(2px);
+  }
 }
