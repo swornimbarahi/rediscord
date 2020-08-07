@@ -44,7 +44,8 @@ export const AddServerButton: FunctionComponent = () => {
 				xmlns="http://www.w3.org/2000/svg"
 				className={classnames(
 					styles["server-icon-container"],
-					styles["home-icon"],
+					selectedServer === "Create Server Prompt" &&
+						styles["icon--selected"],
 					styles["add-server-padding"]
 				)}
 				width="455"
@@ -108,7 +109,7 @@ export const ExplorePublicButton: FunctionComponent = () => {
 			<div
 				className={classnames(
 					styles["server-icon--hover"],
-					selectedServer === "Create Server Propmt" &&
+					selectedServer === "Explore Public Servers" &&
 						styles["server-icon--selected"]
 				)}
 			/>
@@ -116,7 +117,8 @@ export const ExplorePublicButton: FunctionComponent = () => {
 				xmlns="http://www.w3.org/2000/svg"
 				className={classnames(
 					styles["server-icon-container"],
-					styles["home-icon"],
+					selectedServer === "Explore Public Servers" &&
+						styles["icon--selected"],
 					styles["explore-public-padding"]
 				)}
 				width="455"

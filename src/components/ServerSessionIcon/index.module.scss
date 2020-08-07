@@ -12,8 +12,8 @@
 .server-icon-super-container {
 	position: relative;
 	overflow: visible;
-  margin-bottom: 8px;
-  cursor: pointer;
+	margin-bottom: 8px;
+	cursor: pointer;
 
 	.server-icon-container {
 		width: 48px;
@@ -26,21 +26,37 @@
 		justify-content: space-evenly;
 		transition: 0.2s;
 		box-sizing: border-box;
+
+		&--selected {
+			border-radius: 30%;
+		}
 	}
 
 	.home-icon {
 		padding: 5px;
 	}
 
+	.home-icon--selected {
+		padding: 5px;
+		background-color: #7289da;
+		border-radius: 30%;
+	}
+
 	.add-server-padding {
 		padding: 16px;
 		fill: #43b581;
-  }
-  
-  .explore-public-padding {
-    padding: 11px;
+	}
+
+	.explore-public-padding {
+		padding: 11px;
 		fill: #43b581;
-  }
+	}
+
+	.icon--selected {
+		border-radius: 30%;
+		fill: #ffffff;
+		background-color: #43b581;
+	}
 
 	.server-icon--hover {
 		&-unread {
@@ -89,14 +105,14 @@
 
 	.server-name--tooltip {
 		visibility: hidden;
-    position: absolute;
-    display: inline-block;
+		position: absolute;
+		display: inline-block;
 		left: 80px;
 		top: 5px;
 		z-index: 5;
-    box-sizing: border-box;
-    white-space: nowrap;
-    padding: 7px 12px 10px 12px;
+		box-sizing: border-box;
+		white-space: nowrap;
+		padding: 7px 12px 10px 12px;
 		background-color: black;
 		color: white;
 		font-size: 16px;
@@ -153,26 +169,26 @@
 	}
 
 	.server-name--tooltip {
-    visibility: visible;
-    max-width: 200px;
+		visibility: visible;
+		max-width: 200px;
 	}
 
 	.home-icon {
 		padding: 5px;
 		background-color: #7289da;
 	}
-  
-  .add-server-padding {
+
+	.add-server-padding {
 		padding: 16px;
 		background-color: #43b581;
 		fill: #ffffff;
-  }
-  
-  .explore-public-padding {
-    padding: 11px;
+	}
+
+	.explore-public-padding {
+		padding: 11px;
 		background-color: #43b581;
 		fill: #ffffff;
-  }
+	}
 }
 
 .server-icon-super-container:hover .server-icon--text {
@@ -181,7 +197,7 @@
 }
 
 .server-icon-super-container:active {
-  .server-icon-container {
-    transform: translateY(2px);
-  }
+	.server-icon-container {
+		transform: translateY(2px);
+	}
 }

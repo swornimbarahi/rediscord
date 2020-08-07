@@ -50,7 +50,15 @@ const ServerSessionIcon: FunctionComponent<ChatSessionPropType> = (props) => {
 				)}
 			/>
 			{icon ? (
-				<img className={styles["server-icon-container"]} src={icon} alt="" />
+				<img
+					className={classnames(
+						styles["server-icon-container"],
+						selectedServer === serverId &&
+							styles["server-icon-container--selected"]
+					)}
+					src={icon}
+					alt=""
+				/>
 			) : (
 				<span>{serverTitle[0].toUpperCase()}</span>
 			)}
@@ -102,7 +110,8 @@ export const HomeIcon: FunctionComponent<{ unread: boolean }> = (props) => {
 			<img
 				className={classnames(
 					styles["server-icon-container"],
-					styles["home-icon"]
+					styles["home-icon"],
+					selectedServer === "Home" && styles["home-icon--selected"]
 				)}
 				src={logo}
 				alt=""
