@@ -28,7 +28,7 @@
 		box-sizing: border-box;
 
 		&--selected {
-			border-radius: 30%;
+			border-radius: 35%;
 		}
 	}
 
@@ -39,7 +39,7 @@
 	.home-icon--selected {
 		padding: 5px;
 		background-color: #7289da;
-		border-radius: 30%;
+		border-radius: 35%;
 	}
 
 	.add-server-padding {
@@ -53,7 +53,7 @@
 	}
 
 	.icon--selected {
-		border-radius: 30%;
+		border-radius: 35%;
 		fill: #ffffff;
 		background-color: #43b581;
 	}
@@ -140,7 +140,7 @@
 
 .server-icon-super-container:hover {
 	.server-icon-container {
-		border-radius: 30%;
+		border-radius: 35%;
 		background-color: #202225;
 	}
 

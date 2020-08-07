@@ -1,14 +1,13 @@
 .serverbar-container {
 	padding-top: 8px;
 	width: 72px;
-	height: calc(100vh - 22px);
 	background-color: #202225;
-	overflow: visible;
 	margin: 0px;
 	display: flex;
 	flex-direction: column;
 	-webkit-user-select: none;
 	-webkit-user-drag: none;
+	overflow: visible;
 }
 
 .separator {

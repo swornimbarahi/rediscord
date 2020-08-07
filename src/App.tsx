@@ -9,6 +9,7 @@ import "./App.scss";
 import AuthContext from "./contexts/AuthContext";
 import RouteContext from "./contexts/RouteContext";
 import ServerContext from "./contexts/ServerContext";
+import ChannelContext from "./contexts/ChannelContext";
 
 const App: FunctionComponent = () => {
 	const [userState, setUserState] = useState({
@@ -21,6 +22,8 @@ const App: FunctionComponent = () => {
 	const [route, setRoute] = useState("/");
 
 	const [selectedServer, setSelectedServer] = useState("");
+
+	const [selectedChannel, setSelectedChannel] = useState("");
 
 	useEffect(() => {
 		console.log(route);
@@ -51,15 +54,19 @@ const App: FunctionComponent = () => {
 		<AuthContext.Provider value={{ userState, setUserState }}>
 			<RouteContext.Provider value={{ route, setRoute }}>
 				<ServerContext.Provider value={{ selectedServer, setSelectedServer }}>
-					<div
-						className={classnames([
-							"App",
-							!userState.loggedIn && "App--no-auth",
-						])}
+					<ChannelContext.Provider
+						value={{ selectedChannel, setSelectedChannel }}
 					>
-						<TitleBar transparent={userState.loggedIn} />
-						<div className="AppBody">{Routes[route].component}</div>
-					</div>
+						<div
+							className={classnames([
+								"App",
+								!userState.loggedIn && "App--no-auth",
+							])}
+						>
+							<TitleBar transparent={userState.loggedIn} />
+							<div className="AppBody">{Routes[route].component}</div>
+						</div>
+					</ChannelContext.Provider>
 				</ServerContext.Provider>
 			</RouteContext.Provider>
 		</AuthContext.Provider>
