@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="57.5" height="65" viewBox="0 0 57.5 65">
+  <g id="mouse" transform="translate(-21.25 -26.875)">
+    <path id="Path_1" data-name="Path 1" d="M78.75,33.125c0-6.179-6-6.25-6.25-6.25H51.25v2.5h2.5v12.5h-2.5v2.5h27.5Z"/>
+    <path id="Path_2" data-name="Path 2" d="M78.75,46.875H21.25v16.25a28.75,28.75,0,0,0,57.5,0Z"/>
+    <path id="Path_3" data-name="Path 3" d="M21.25,33.125v11.25h27.5v-2.5h-2.5v-12.5h2.5v-2.5H27.5C26.864,26.88,21.25,27.095,21.25,33.125Z"/>
+    <rect id="Rectangle_1" data-name="Rectangle 1" width="2.5" height="9.25" rx="1" transform="translate(48.75 31.125)"/>
+  </g>
+</svg>

@@ -1,11 +1,18 @@
-import React, { FunctionComponent, useContext } from "react";
+import React, { FunctionComponent } from "react";
 import classnames from "classnames";
 
 import styles from "./index.module.scss";
-import ServerSessionIcon from "../ServerSessionIcon";
+import ServerSessionIcon, { HomeIcon } from "../ServerSessionIcon";
+import {
+	AddServerButton,
+	ExplorePublicButton,
+} from "../ServerSessionIcon/util";
+
 const ServerBar: FunctionComponent = () => {
 	return (
 		<div className={classnames(styles["serverbar-container"])}>
+			<HomeIcon unread={false} />
+			<div className={styles["separator"]} />
 			<ServerSessionIcon
 				icon={"https://simpleicons.org/icons/sass.svg"}
 				unread
@@ -26,6 +33,9 @@ const ServerBar: FunctionComponent = () => {
 				serverId={"3"}
 				serverTitle={"NT"}
 			/>
+			{/* ------------------------------ */}
+			<AddServerButton />
+			<ExplorePublicButton />
 		</div>
 	);
 };

@@ -1,12 +1,22 @@
 .serverbar-container {
-  padding-top: 8px;
-  width: 72px;
-  height: calc(100vh - 22px);
-  background-color: #202225;
-  overflow: visible;
-  margin: 0px;
-  display: flex;
-  flex-direction: column;
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
+	padding-top: 8px;
+	width: 72px;
+	height: calc(100vh - 22px);
+	background-color: #202225;
+	overflow: visible;
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+}
+
+.separator {
+	height: 2px;
+	width: 32px;
+	border-radius: 1px;
+	background-color: hsla(0, 0%, 100%, 0.06);
+	margin: auto;
+  margin-bottom: 9px;
+  margin-top: 0px;
 }
