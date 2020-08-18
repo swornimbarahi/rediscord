@@ -21,7 +21,12 @@ const App: FunctionComponent = () => {
 
 	const [route, setRoute] = useState("/");
 
-	const [selectedServer, setSelectedServer] = useState("");
+	const [selectedServer, setSelectedServer] = useState({
+		icon: "",
+		serverId: "Home",
+		serverTitle: "Home",
+		unread: false,
+	});
 
 	const [selectedChannel, setSelectedChannel] = useState("");
 

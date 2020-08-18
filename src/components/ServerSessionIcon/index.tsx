@@ -22,15 +22,15 @@ const ServerSessionIcon: FunctionComponent<ChatSessionPropType> = (props) => {
 	const { icon, serverId, serverTitle, unread } = props;
 
 	const { selectedServer, setSelectedServer } = useContext(ServerContext) as {
-		selectedServer: string;
-		setSelectedServer: Dispatch<SetStateAction<string>>;
+		selectedServer: ChatSessionPropType;
+		setSelectedServer: Dispatch<SetStateAction<ChatSessionPropType>>;
 	};
 
 	const [hover, setHover] = useState(false);
 
 	const handleClick = () => {
-		if (selectedServer !== serverId) {
-			setSelectedServer(serverId);
+		if (selectedServer.serverId !== serverId) {
+			setSelectedServer(props);
 		}
 	};
 
@@ -46,14 +46,15 @@ const ServerSessionIcon: FunctionComponent<ChatSessionPropType> = (props) => {
 				className={classnames(
 					styles["server-icon--hover"],
 					unread && styles["server-icon--hover-unread"],
-					selectedServer === serverId && styles["server-icon--selected"]
+					selectedServer.serverId === serverId &&
+						styles["server-icon--selected"]
 				)}
 			/>
 			{icon ? (
 				<img
 					className={classnames(
 						styles["server-icon-container"],
-						selectedServer === serverId &&
+						selectedServer.serverId === serverId &&
 							styles["server-icon-container--selected"]
 					)}
 					src={icon}
@@ -78,15 +79,20 @@ export const HomeIcon: FunctionComponent<{ unread: boolean }> = (props) => {
 	const { unread } = props;
 
 	const { selectedServer, setSelectedServer } = useContext(ServerContext) as {
-		selectedServer: string;
-		setSelectedServer: Dispatch<SetStateAction<string>>;
+		selectedServer: ChatSessionPropType;
+		setSelectedServer: Dispatch<SetStateAction<ChatSessionPropType>>;
 	};
 
 	const [hover, setHover] = useState(false);
 
 	const handleClick = () => {
-		if (selectedServer !== "Home") {
-			setSelectedServer("Home");
+		if (selectedServer.serverId !== "Home") {
+			setSelectedServer({
+				icon: logo,
+				serverId: "Home",
+				serverTitle: "Home",
+				unread: false,
+			});
 		}
 	};
 
@@ -104,14 +110,14 @@ export const HomeIcon: FunctionComponent<{ unread: boolean }> = (props) => {
 				className={classnames(
 					styles["server-icon--hover"],
 					unread && styles["server-icon--hover-unread"],
-					selectedServer === "Home" && styles["server-icon--selected"]
+					selectedServer.serverId === "Home" && styles["server-icon--selected"]
 				)}
 			/>
 			<img
 				className={classnames(
 					styles["server-icon-container"],
 					styles["home-icon"],
-					selectedServer === "Home" && styles["home-icon--selected"]
+					selectedServer.serverId === "Home" && styles["home-icon--selected"]
 				)}
 				src={logo}
 				alt=""

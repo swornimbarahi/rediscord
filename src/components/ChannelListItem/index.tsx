@@ -7,10 +7,10 @@ export interface ChannelListItemPropType {
 	channelId: string;
 }
 
-const ChannelListIcon: FunctionComponent<ChannelListItemPropType> = (props) => {
+const ChannelListItem: FunctionComponent<ChannelListItemPropType> = (props) => {
 	const { type, title, unread, channelId } = props;
 
 	return <div></div>;
 };
 
-export default ChannelListIcon;
+export default ChannelListItem;

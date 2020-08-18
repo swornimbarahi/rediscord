@@ -5,21 +5,27 @@ import React, {
 	Dispatch,
 	SetStateAction,
 } from "react";
+import { ChatSessionPropType } from "./index";
 import classnames from "classnames";
 import styles from "./index.module.scss";
 import ServerContext from "../../contexts/ServerContext";
 
 export const AddServerButton: FunctionComponent = () => {
 	const { selectedServer, setSelectedServer } = useContext(ServerContext) as {
-		selectedServer: string;
-		setSelectedServer: Dispatch<SetStateAction<string>>;
+		selectedServer: ChatSessionPropType;
+		setSelectedServer: Dispatch<SetStateAction<ChatSessionPropType>>;
 	};
 
 	const [hover, setHover] = useState(false);
 
 	const handleClick = () => {
-		if (selectedServer !== "Create Server Prompt") {
-			setSelectedServer("Create Server Prompt");
+		if (selectedServer.serverId !== "Create Server Prompt") {
+			setSelectedServer({
+				icon: "",
+				serverId: "Create Server Prompt",
+				serverTitle: "Create Server Prompt",
+				unread: false,
+			});
 		}
 	};
 
@@ -36,7 +42,7 @@ export const AddServerButton: FunctionComponent = () => {
 			<div
 				className={classnames(
 					styles["server-icon--hover"],
-					selectedServer === "Create Server Prompt" &&
+					selectedServer.serverId === "Create Server Prompt" &&
 						styles["server-icon--selected"]
 				)}
 			/>
@@ -44,7 +50,7 @@ export const AddServerButton: FunctionComponent = () => {
 				xmlns="http://www.w3.org/2000/svg"
 				className={classnames(
 					styles["server-icon-container"],
-					selectedServer === "Create Server Prompt" &&
+					selectedServer.serverId === "Create Server Prompt" &&
 						styles["icon--selected"],
 					styles["add-server-padding"]
 				)}
@@ -84,15 +90,20 @@ export const AddServerButton: FunctionComponent = () => {
 
 export const ExplorePublicButton: FunctionComponent = () => {
 	const { selectedServer, setSelectedServer } = useContext(ServerContext) as {
-		selectedServer: string;
-		setSelectedServer: Dispatch<SetStateAction<string>>;
+		selectedServer: ChatSessionPropType;
+		setSelectedServer: Dispatch<SetStateAction<ChatSessionPropType>>;
 	};
 
 	const [hover, setHover] = useState(false);
 
 	const handleClick = () => {
-		if (selectedServer !== "Explore Public Servers") {
-			setSelectedServer("Explore Public Servers");
+		if (selectedServer.serverId !== "Explore Public Servers") {
+			setSelectedServer({
+				icon: "",
+				serverId: "Explore Public Servers",
+				serverTitle: "Explore Public Servers",
+				unread: false,
+			});
 		}
 	};
 
@@ -109,7 +120,7 @@ export const ExplorePublicButton: FunctionComponent = () => {
 			<div
 				className={classnames(
 					styles["server-icon--hover"],
-					selectedServer === "Explore Public Servers" &&
+					selectedServer.serverId === "Explore Public Servers" &&
 						styles["server-icon--selected"]
 				)}
 			/>
@@ -117,7 +128,7 @@ export const ExplorePublicButton: FunctionComponent = () => {
 				xmlns="http://www.w3.org/2000/svg"
 				className={classnames(
 					styles["server-icon-container"],
-					selectedServer === "Explore Public Servers" &&
+					selectedServer.serverId === "Explore Public Servers" &&
 						styles["icon--selected"],
 					styles["explore-public-padding"]
 				)}
